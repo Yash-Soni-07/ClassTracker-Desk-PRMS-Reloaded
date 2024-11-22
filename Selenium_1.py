@@ -24,8 +24,8 @@ def send_whatsapp_messages(messages=["Test Message"], phone_nums=[1234512345]):
     for i in range(0, len(phone_nums)):
         driver.get(whats_url+f"/send?phone={phone_nums[i]}")
 
-        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CLASS_NAME, "_3Uu1_")))
-        entry_field = driver.find_element(By.CLASS_NAME, "_3Uu1_")
+        WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'div[aria-placeholder="Type a message"]')))
+        entry_field = driver.find_element(By.CSS_SELECTOR, 'div[aria-placeholder="Type a message"]')
 
         entry_field.send_keys(messages[i])
         entry_field.send_keys(Keys.ENTER)
@@ -34,8 +34,8 @@ def send_whatsapp_messages(messages=["Test Message"], phone_nums=[1234512345]):
 def send_whatsapp_message(body="",num=""):
     driver.get(whats_url+f"/send?phone={num}")
 
-    WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CLASS_NAME, "_3Uu1_")))
-    entry_field = driver.find_element(By.CLASS_NAME, "_3Uu1_")
+    WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'div[aria-placeholder="Type a message"]')))
+    entry_field = driver.find_element(By.CSS_SELECTOR, 'div[aria-placeholder="Type a message"]')
     entry_field.send_keys(body)
     entry_field.send_keys(Keys.ENTER)
     time.sleep(1)
