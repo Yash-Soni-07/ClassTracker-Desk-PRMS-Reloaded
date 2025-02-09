@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66dacacc-421d-4774-8fc2-ea1f2d35ea21" name="Changes" comment="Chrome Driver updated">
-      <change afterPath="$PROJECT_DIR$/Student_Analysis.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestCalen.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_PRMS_backup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/student_selection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/PRMS_RELOADED.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PRMS_RELOADED.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DateConfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/DateConfig.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Excel_Automation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Excel_Automation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chromedriver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/chromedriver.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_PRMS.py" beforeDir="false" />
-    </list>
+    <list default="true" id="66dacacc-421d-4774-8fc2-ea1f2d35ea21" name="Changes" comment="Chrome Driver updated" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
