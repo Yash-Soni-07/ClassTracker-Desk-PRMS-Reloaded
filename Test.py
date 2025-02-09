@@ -1,37 +1,47 @@
-import tkinter as tk
-from tkinter import ttk
-import Name_List_Selection
+import pandas as pd
+import matplotlib.pyplot as plt
+import random
+from datetime import datetime, timedelta
 
 
-window = tk.Tk()
-window.title("Test")
-window.geometry("600x400")
+# Generate random student data
+def generate_random_data():
+    students = [
+        "Alice Johnson", "Bob Smith", "Charlie Brown", "David Williams", "Emma Davis",
+        "Frank Miller", "Grace Wilson", "Hannah Moore", "Isaac Taylor", "Jack Anderson"
+    ]
 
-window.columnconfigure(0 ,weight=1, uniform='a')
-window.rowconfigure(0 ,weight=1, uniform='a')
+    start_date = datetime(2024, 12, 1)
+    end_date = datetime(2025, 1, 31)
+    days = (end_date - start_date).days + 1
 
-main_frame = ttk.Frame(window, borderwidth=5, relief='groove')
-main_frame.grid(column=0, row=0, sticky='nsew')
+    with pd.ExcelWriter("student.xlsx") as writer:
+        for i in range(days):
+            date = start_date + timedelta(days=i)
+            sheet_name = date.strftime("%Y_%B_%d")
 
-name_list = Name_List_Selection.select_for(batch='CLASS_11_B3')
-num_of_reports = len(name_list)
-main_frame_row_list = []
-'''Layout in Canvas'''
-for i in range(num_of_reports):
-    main_frame_row_list.append(i)
+            data_format = random.choice([
+                ['Name', 'Attendance', 'HW Status', 'Test Score'],
+                ['Name', 'Attendance'],
+                ['Name', 'Attendance', 'HW Status'],
+                ['Name', 'Attendance', 'Test Score']
+            ])
 
-main_frame.columnconfigure(0, weight=1, uniform='b')
-main_frame.columnconfigure(main_frame_row_list, weight=1, uniform='b')
+            data = []
+            for student in students:
+                row = {"Name": student}
+                if 'Attendance' in data_format:
+                    row['Attendance'] = random.choice([0, 1])  # 0 for absent, 1 for present
+                if 'HW Status' in data_format:
+                    row['HW Status'] = random.choice([0, 0.5, 1])  # 0=Not Done, 0.5=Incomplete, 1=Completed
+                if 'Test Score' in data_format:
+                    row['Test Score'] = random.randint(50, 100)
+                data.append(row)
 
-individual_frames = []
-
-for i in range(0, num_of_reports):
-    frame = ttk.Frame(main_frame, borderwidth=5, relief='groove')
-    frame.propagate(False)
-    frame_label = ttk.Label(frame, text=f"Label {i}", font='comicsans 18')
-    frame_label.pack()
-    frame.grid(column=0, row=i, sticky='nsew', pady=10)
+            df = pd.DataFrame(data, columns=data_format)
+            df.to_excel(writer, sheet_name=sheet_name, index=False)
 
 
-
-window.mainloop()
+# Generate and save random data
+generate_random_data()
+print("Excel file 'student.xlsx' created successfully!")
